@@ -13,8 +13,39 @@ import java.time.format.DateTimeFormatter;
  * 
  */
 public class App {
-	static String[] args = {"lazy", "lion", "is", "always"};
+	private int x, y;
+
+	static boolean isAvailable;
+	static String[] args = { "lazy", "lion", "is", "always" };
+	private char var;
+
 	public static void main(String[] args) {
+		//Q179
+		System.out.println(args[5]);
+		
+		//Q182
+		char var1 = 'a';
+		char var2 = var1;
+		var2 = 'e';
+		System.out.println(var1 + ", " + var2);
+		App app1 = new App();
+		App app2 = app1;
+		app1.var = 'i';
+		app2.var = 'o';
+		System.out.println(app1.var + ", " + app2.var);
+		
+		// Q152
+		App app = new App();
+		app.printThis(1, 2);
+		app.printThat(3, 4);
+
+		//Q166
+		System.out.println(isAvailable);
+		isAvailable = app.doStuffB();
+		System.out.println(isAvailable);
+		
+		// Q153
+		ArrayList<Animal> animal = new ArrayList<>();
 		System.out.println(args[1] + " " + args[2] + " " + args[3] + " jumping");
 		System.out.println("Hello World!");
 		// q23
@@ -169,10 +200,10 @@ public class App {
 		// Q79
 		String color = "teal";
 		System.out.println(color.equals("Teal"));
-		 switch (color) {
-		 case "Teal":
-		 System.out.println("Found Teal");
-		 }
+		switch (color) {
+		case "Teal":
+			System.out.println("Found Teal");
+		}
 
 		// Q83
 		int iVar = 100;
@@ -248,6 +279,8 @@ public class App {
 		// String str2 = sb1.toString();
 		// String str2 = str1;
 		System.out.println(str1 == str2);
+		sb1.delete(0, sb1.length());
+		System.out.println(sb1.toString());
 
 		// Q122
 		Caller c = new Caller();
@@ -292,13 +325,13 @@ public class App {
 		int indexE = 0;
 		boolean isFound = false;
 		float key = 30.40f;
-		// while (indexE <= 4) {
-		// if (key == fltArray[indexE]) {
-		// indexE++;
-		// isFound = true;
-		// break;
-		// }
-		// }
+//		while (indexE <= 4) {
+//			if (key == fltArray[indexE]) {
+//				indexE++;
+//				isFound = true;
+//				break;
+//			}
+//		}
 		// while (key == fltArray[indexE++]) {
 		// isFound = true;
 		// }
@@ -316,19 +349,19 @@ public class App {
 			indexE++;
 		}
 		System.out.println(isFound);
-		
-		//Q156
+
+		// Q156
 		String ss = "A";
-		switch(ss) {
-			case "a":
-				System.out.println("simple a");
-			default:
-				System.out.println("default");
-			case "A":
-				System.out.println("cap A");
+		switch (ss) {
+		case "a":
+			System.out.println("simple a");
+		default:
+			System.out.println("default");
+		case "A":
+			System.out.println("cap A");
 		}
-		
-		//Q160
+
+		// Q160
 		int aaa = -10;
 		int bbb = 17;
 		int ccc = ++aaa;
@@ -337,44 +370,45 @@ public class App {
 		ccc++;
 		ddd--;
 		System.out.println(ccc + " " + ddd);
-		
-		//Q161
+
+		// Q161
 		Short sh1 = 160;
 		Integer int1 = 400;
-		Long l1 = (long)sh1 + int1;
-//		String s4 = (String) (l1 * int1); // can not cast long to string
-		
-		//Q167
+		Long l1 = (long) sh1 + int1;
+		// String s4 = (String) (l1 * int1); // can not cast long to string
+
+		// Q167
 		int nnn = 5;
 		do {
 			System.out.println(nnn-- + " ");
-		} while (nnn==0);
-		
-		//Q171
+		} while (nnn == 0);
+
+		// Q171
 		Boolean[] boo = new Boolean[2];
 		boo[0] = new Boolean("true");
 		boo[1] = new Boolean(null);
 		System.out.println(boo[0] + " " + boo[1]);
-		
+
 		doStuff("9009");
-	
-		//Q189
-		List<Person> persons = Arrays.asList(new Person("Hank", 45), new Person("Charlie", 40), new Person("Smith", 38));
+
+		// Q189
+		List<Person> persons = Arrays.asList(new Person("Hank", 45), new Person("Charlie", 40),
+				new Person("Smith", 38));
 		checkAge(persons, per -> per.getAge() > 40);
-		
-		//Q204
-		String[][] sssss = {{"A", "B", "C"}, {"D", "E"}};
+
+		// Q204
+		String[][] sssss = { { "A", "B", "C" }, { "D", "E" } };
 		for (int is = 0; is < sssss.length; is++) {
 			for (int js = 0; js < sssss[is].length; js++) {
 				System.out.println(sssss[is][js] + "");
 				if (sssss[is][js].equals("B")) {
 					break;
-				}				
+				}
 			}
-			continue;			
+			continue;
 		}
-		
-		//Q205
+
+		// Q205
 		List colors = new ArrayList();
 		colors.add("Green");
 		colors.add("Red");
@@ -383,16 +417,16 @@ public class App {
 		colors.remove(2);
 		colors.add(2, "Cyan");
 		System.out.println(colors);
-		
-		//Q227
-		int[] ar1 = {2, 4, 6, 8};
-		int[] ar2 = {1, 3, 5, 7, 9};
+
+		// Q227
+		int[] ar1 = { 2, 4, 6, 8 };
+		int[] ar2 = { 1, 3, 5, 7, 9 };
 		ar2 = ar1;
-		for(int ar : ar2) {
+		for (int ar : ar2) {
 			System.out.println(ar);
 		}
-		
-		//Q234
+
+		// Q234
 		StringBuilder sb11 = new StringBuilder(5);
 		String s = "";
 		if (sb11.equals(s)) {
@@ -402,54 +436,123 @@ public class App {
 		} else {
 			System.out.println("No Match");
 		}
-		
+
 		LocalDate date1 = LocalDate.now();
 		LocalDate date2 = LocalDate.of(2014, 06, 24);
 		LocalDate date3 = LocalDate.parse("2014-06-24", DateTimeFormatter.ISO_DATE);
-		
-//		String dddate = LocalDate.parse("2014-05-04").format(DateTimeFormatter.ISO_DATE_TIME);
-		
-		
+
+		// String dddate =
+		// LocalDate.parse("2014-05-04").format(DateTimeFormatter.ISO_DATE_TIME);
+
 		System.out.println("Date 1 " + date1);
 		System.out.println("Date 2 " + date2);
 		System.out.println("Date 3 " + date3);
+
+		// System.out.println("dddate " + dddate);
+
+		//Q155
+		int ax = 10, az = 30;
+		int aw = 1, ay = 1;
+		try {
+			aw = ax % 2;
+			ay = az / aw;
+		} catch (ArithmeticException e1) {
+			System.out.println("Invalid division.");
+		} catch (Exception e) {
+			aw = 1;
+			System.out.println("Divisor changed.");
+		}
+//		ay = az / aw;
+//		System.out.println("Divisor successful.");
 		
-//		System.out.println("dddate " + dddate);
-		
-		//Q42
+		// Q42
 		List<AAA> str = new ArrayList<AAA>();
 		str.add(new AAA());
 		str.add(new BBB());
 		str.add(new CCC());
-		
+
 		for (AAA t : str) {
 			System.out.println(t.duStuff("Java"));
 		}
+
+		// Runnable r = 0 -> {System.out.println(t.duStuff("Java"));};
+
+		// Q160
+		//Q168
+		System.out.println("Hello = " + new StringBuilder("Java SE 8"));
+		System.out.println("Hello = " + new MyString("Java SE 8"));
+
+		//Q21
+		try {
+			app.doPrint();
+			app.doList();
+		} catch (Exception e) {
+			System.out.println("Caught " + e);
+		}
 		
-//		Runnable r = 0 -> {System.out.println(t.duStuff("Java"));};
+		//Q141
+		DoThingInterface dti = new DoThing();
+		dti.m1(100);
+		dti.m2(200);
 		
 		
+		//Q147
+		int count = 0;
+		for (int iii = 0; iii < 3; iii++ ) {
+			for (int jjj = 3; jjj > 0; jjj--) {
+				if (iii == jjj) {
+					++count;
+					break;
+				}
+			}
+			System.out.println(count);			
+		}
 	}
 	
+	public void doList() throws RuntimeException {
+		throw new Error("Error");
+	}
+
+	public void doPrint() throws RuntimeException {
+		throw new RuntimeException("Exception");
+	}
+	
+	public void printThis(int x, int y) {
+		x = x;
+		y = y;
+		System.out.println("x = " + this.x + " y = " + this.y);
+	}
+
+	public void printThat(int x, int y) {
+		this.x = x;
+		this.y = y;
+		System.out.println("x = " + this.x + " y = " + this.y);
+	}
+
 	public static void checkAge(List<Person> persons, Predicate<Person> predicate) {
 		for (Person p : persons) {
 			if (predicate.test(p)) {
 				System.out.println(p.name + " ");
 			}
 		}
-		
+
 	}
 
+	public static boolean doStuffB() {
+		return !isAvailable;
+	}	
 	public static void doStuff(String str) {
 		int myNum = 0;
 		try {
 			String ss = str;
 			myNum = Integer.valueOf(str);
 		} catch (Exception e) {
-			
+
 		}
-//		System.out.println("MyStr" + " " + ss + " MyNum " + myNum); compile fails on ss
+		// System.out.println("MyStr" + " " + ss + " MyNum " + myNum); compile fails on
+		// ss
 	}
+
 	public static void doSomething() throws SpecialException {
 		int[] arrayInt = new int[4];
 		// arrayInt[4] = 13;
@@ -458,6 +561,8 @@ public class App {
 	public static List update() {
 		return null;
 	}
+	
+	
 }
 
 class Alpha {
@@ -601,15 +706,16 @@ class DoThing implements DoThingInterface {
 class Person {
 	String name;
 	int age;
-	
+
 	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -619,15 +725,15 @@ class Overloading {
 	int x(double d) {
 		return 0;
 	}
-	
-//	double x(double d) {
-//		return 0.0;
-//	}
+
+	// double x(double d) {
+	// return 0.0;
+	// }
 }
 
 class AAA {
 	public String duStuff(String msg) {
-		return msg;		
+		return msg;
 	}
 }
 
@@ -640,5 +746,12 @@ class BBB extends AAA {
 class CCC extends AAA {
 	public String duStuff(String msg) {
 		return msg.substring(2);
+	}
+}
+
+class MyString {
+	String msg;
+	MyString(String msg) {
+		this.msg = msg;
 	}
 }
