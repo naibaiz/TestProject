@@ -2,8 +2,7 @@ package com.sql.interview;
 
 import java.util.EmptyStackException;
 
-public class MyStack<T> {
-	
+public class MyStack<T> {	
 	private class MyStackNode<T> {
 		T data;
 		MyStackNode<T> next;
@@ -31,8 +30,7 @@ public class MyStack<T> {
 		}
 		T data = top.data;
 		top = top.next;
-		return data;
-		
+		return data;		
 	}	
 	
 	public T peek() {
@@ -50,5 +48,4 @@ public class MyStack<T> {
 		System.out.println(value);
 		top = temp;
 	}
-
 }
