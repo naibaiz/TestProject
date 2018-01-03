@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- define the dependencies -->
+	<bean id="myFlyBehaviour" class="org.design.pattern.FlyWithWings">
+	</bean>
+
+	<bean id="myFlyBehaviourNoFly" class="org.design.pattern.FlyNoWay">
+	</bean>
+
+	<bean id="myFlyBehaviourRocket" class="org.design.pattern.FlyRocketPowered">
+	</bean>
+
+	<bean id="myQuackBehaviour" class="org.design.pattern.Quack">
+	</bean>
+
+	<bean id="mySilentQuackBehaviour" class="org.design.pattern.SilentQuack">
+	</bean>
+
+	<!-- define the beans -->
+	<bean id="myDuck" class="org.design.pattern.MallardDuck"
+		init-method="doMyStartupStuff" destroy-method="doMyDestroyStuffYoYo">
+		<property name="flyBehaviour" ref="myFlyBehaviour" />
+		<property name="quackBehaviour" ref="myQuackBehaviour" />
+	</bean>
+
+	<bean id="myModelDuck" class="org.design.pattern.ModelDuck">
+		<property name="flyBehaviour" ref="myFlyBehaviourNoFly" />
+		<property name="quackBehaviour" ref="myQuackBehaviour" />
+	</bean>
+
+	<bean id="mySilentDuck" class="org.design.pattern.MuteDuck">
+		<property name="flyBehaviour" ref="myFlyBehaviourRocket" />
+		<property name="quackBehaviour" ref="mySilentQuackBehaviour" />
+	</bean>
+
+	<bean id="myNewDuck" class="org.design.pattern.NewDuck">
+		<property name="flyBehaviour" ref="myFlyBehaviourRocket" />
+		<property name="quackBehaviour" ref="mySilentQuackBehaviour" />
+	</bean>
+
+</beans>
